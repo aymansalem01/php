@@ -91,5 +91,77 @@ var_dump($array);
 <br><br>
 <!---------------q11----------->
 <?php
-   
+    $str = 'a';
+    if($str == "z"){
+        $str = 'a';
+        echo $str;
+    }
+    else{
+        echo ++$str;
+    }
+?>
+<!--------------------->
+<br><br>
+<!---------------q12----------->
+<?php 
+    $str = "The brown fox";
+    $array = explode(' ', $str);
+    array_splice($array,1,0,"quick");
+    $str = "$array[0] $array[1] $array[2] $array[3]";
+    echo $str. "<br>" ;
+    echo $array[0];
+?>
+<!--------------------->
+<br><br>
+<!---------------q13----------->
+<?php 
+    $str = 00001524.25;
+    echo ltrim($str , "0");
+?>
+<!--------------------->
+<br><br>
+<!---------------q14----------->
+<?php 
+    $str = "the quick brown fox jumps over the lazy dogs";
+    echo str_replace("fox","",$str);
+?>
+<!--------------------->
+<br><br>
+<!---------------q15----------->
+<?php 
+    $str = "the quick brown fox jumps over the lazy dogs";
+    echo str_replace("-","",$str);
+?>
+<!--------------------->
+<br><br>
+<!---------------q16----------->
+<?php 
+    $str = "-12/*3 / *2^87-";
+    $arr = str_split($str); 
+    foreach($arr as $x)
+    if($x>=0 && $x<=9){
+        echo $x;
+    }
+?>
+<!--------------------->
+<br><br>
+<!---------------q17----------->
+<?php 
+    $str = "the quick brown fox jumps over the lazy dogs";
+    echo implode(' ', array_slice(explode(' ', $str), 0, 5));
+?>
+<!--------------------->
+<br><br>
+<!---------------q18----------->
+<?php 
+    $str = "1,250.50";
+    echo str_replace(",","",$str);
+?>
+<!--------------------->
+<br><br>
+<!---------------q18----------->
+<?php 
+    for ($x = ord('a'); $x <= ord('z'); $x++){
+    echo chr($x)." ";
+    }
 ?>
