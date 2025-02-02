@@ -1,0 +1,1 @@
+$result1 = mysqli_query($conn, $query1);
