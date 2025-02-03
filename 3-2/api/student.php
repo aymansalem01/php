@@ -34,16 +34,16 @@ elseif ($method == "GET" && isset($_GET['id'])) {
 }
 elseif ($method == "POST") {
     $data = json_decode(file_get_contents("php://input"), true);
-    if (isset($data['name']) && isset($data['email'])) {
+    if (isset($data['name'])) {
         $name = $data['name'];
         $class = $data['class'];
         $date_of_birth = $data['date_of_birth'];
         $address = $data['address'];
         $contact_info = $data['contact_info'];
 
-        $sql = "INSERT INTO students (name, class , date_of_birth , address , contact_info) VALUES (?, ?,?,?,?)";
+        $sql = "INSERT INTO students (name , class , date_of_birth , address , contact_info) VALUES (?, ? , ? , ? , ?)";
         if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param("sssss", $name ,$class ,$date_of_birth,$address,$contact_info ); 
+            $stmt->bind_param("sssss", $name ,$class , $date_of_birth , $address , $contact_info ); 
             $stmt->execute();
             echo json_encode(["message" => "students added successfully"]);
             $stmt->close();
